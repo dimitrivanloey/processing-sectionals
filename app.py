@@ -11,9 +11,8 @@ FORMATTED_DATE = date_format(DATE)
 
 for n in range(len(HOURS_LIST)):
     df = pd.read_excel(FILE, sheet_name=HOURS_LIST[n])
-    # rounded_df = df.round({'Last 3f (%)': 2})
     type_df = df.astype({'Pos': 'int32'})
-    rounded_df = type_df.round({'Pos': 3})
+    rounded_df = type_df.round({'Last 3f (%)': 2, 'Last 1/2 mile (sec)': 2, 'Last 1/2 mile (%)': 2})
     # df.round({"A":1, "B":2, "C":3, "D":4})
     new_df = rounded_df.replace(np.nan, '', regex=True)
     html_table = new_df.to_html(index=False, classes="horses", border=0)
@@ -28,6 +27,7 @@ for n in range(len(HOURS_LIST)):
 <head>
 <title>Post Race Reports</title>
 <style>
+
 </style>
 <link type="text/css" rel="stylesheet" href="style.css">
 </head>
@@ -44,7 +44,9 @@ for n in range(len(HOURS_LIST)):
                style="width:300px;height:81px;">
            </div>
        </div>
+
     {table}
+
    </div>
    <div class="lower-banner">
        <div class="times-accuracy">
@@ -58,6 +60,7 @@ for n in range(len(HOURS_LIST)):
 </div>
 </body>
 </html>
+
     '''
 
     with open(f'{VENUE}_{HOURS_LIST[n]}.html', 'w') as website_file:
@@ -67,6 +70,14 @@ for n in range(len(HOURS_LIST)):
 
     filename = 'file:///' + os.getcwd() + '/' + f'{VENUE}_{HOURS_LIST[n]}.html'
     webbrowser.open_new_tab(filename)
+
+
+
+
+
+
+
+
 
 
 

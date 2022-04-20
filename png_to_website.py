@@ -11,7 +11,7 @@ ADJUSTED_HOUR_LIST = []
 
 # Adjusting the hours winter/summer time
 for n in range(len(HOURS_LIST)):
-    adjusted_hour = int(HOURS_LIST[n])
+    adjusted_hour = int(HOURS_LIST[n]) - 100
     ADJUSTED_HOUR_LIST.append(adjusted_hour)
 
 # Creating PDFs
