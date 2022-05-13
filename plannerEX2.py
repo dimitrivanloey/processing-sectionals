@@ -60,6 +60,7 @@ for meeting in meetings_list:
   num_races += len([keys for keys in meeting['races']])
   
 print(f"{num_meetings} meetings - {num_races} races - {num_runners} runners")
+print('')
 
 line_list = []
 for meeting in meetings_list:
@@ -69,10 +70,22 @@ for meeting in meetings_list:
       num_runners = meeting['races'][race]
       type = meeting['type']
       operator = meeting['operator']
-      # print(f"{race} {meeting['name']} R{teller} - {num_runners} runners - {type} - {operator}")
-      line1 = f"{race} {meeting['name']} R{teller} - {num_runners} runners - {type} - {operator}"
+      extra = ''
+      if type == 'flat':
+        extra = 'U/O: '
+      elif type == 'jumps':
+        extra = 'Manual start'
+      line1 = f"{race} {meeting['name']} R{teller} - {num_runners} runners - {type} - {operator} - {extra}\n"
       teller += 1
-      line_list.append(line1)
+      num_line = ''
+      for num in range(1, int(num_runners) + 1):
+          num_line += str(num) + 'p     '
+      num_line2 = f'\n'
+      for num in range(1, int(num_runners) + 1):
+            num_line2 += str(num) + 's     '
+
+      line_list.append(line1 + num_line + num_line2)
+      
 
 for line in sorted(line_list):
     print(f"{line}")
