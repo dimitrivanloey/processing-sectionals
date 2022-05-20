@@ -13,7 +13,7 @@ for n in range(len(HOURS_LIST)):
     df = pd.read_excel(FILE, sheet_name=HOURS_LIST[n])
     # rounded_df = df.round({'Last 3f (%)': 2})
     type_df = df.astype({'Pos': 'int32'})
-    rounded_df = type_df.round({'Pos': 3})
+    rounded_df = type_df.round({'Pos': 3, 'Last 1/2 mile (%)': 2})
     # df.round({"A":1, "B":2, "C":3, "D":4})
     new_df = rounded_df.replace(np.nan, '', regex=True)
     html_table = new_df.to_html(index=False, classes="horses", border=0)

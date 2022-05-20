@@ -31,4 +31,4 @@ for n in range(len(HOURS_LIST)):
         print(test_response.text)
     else:
         print(f"Something went wrong! for {VENUE}_{DATE}_{ADJUSTED_HOUR_LIST[n]}.pdf")
-        print(test_response.text)
+        print(test_response.status_code)
