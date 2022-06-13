@@ -28,7 +28,7 @@ for n in range(len(HOURS_LIST)):
 
     if test_response.ok:
         print(f"Upload completed successfully! for {VENUE}_{DATE}_{ADJUSTED_HOUR_LIST[n]}.pdf")
-        print(test_response.text)
+        print(test_response.status_code)
     else:
         print(f"Something went wrong! for {VENUE}_{DATE}_{ADJUSTED_HOUR_LIST[n]}.pdf")
         print(test_response.status_code)
