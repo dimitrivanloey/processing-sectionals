@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import webbrowser
 import os
+import imgkit
 
 from user_input import VENUE, HOURS_LIST, TITLES_LIST, DATE, FILE
 from date_format import date_format
@@ -70,4 +71,4 @@ for n in range(len(HOURS_LIST)):
 
 
 
-
+# imgkit.from_file('perth_1342.html', 'out.jpg')

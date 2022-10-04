@@ -1,5 +1,6 @@
 from PIL import Image
 import requests
+from datetime import datetime
 
 from user_input import HOURS_LIST, VENUE, DATE
 
@@ -11,8 +12,12 @@ ADJUSTED_HOUR_LIST = []
 
 # Adjusting the hours winter/summer time
 for n in range(len(HOURS_LIST)):
-    adjusted_hour = int(HOURS_LIST[n]) - 100
-    ADJUSTED_HOUR_LIST.append(adjusted_hour)
+    if datetime.now() == datetime.utcnow():
+        adjusted_hour = int(HOURS_LIST[n])
+        ADJUSTED_HOUR_LIST.append(adjusted_hour)
+    else:
+        adjusted_hour = int(HOURS_LIST[n]) - 100
+        ADJUSTED_HOUR_LIST.append(adjusted_hour)
 
 # Creating PDFs
 for n in range(len(HOURS_LIST)):
