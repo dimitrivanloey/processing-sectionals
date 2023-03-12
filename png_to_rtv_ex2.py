@@ -2,9 +2,9 @@ from PIL import Image
 import requests
 from datetime import datetime
 
-HOUR_LIST = ['1400', '1430', '1500', '1530', '1630']
-VENUE = 'leicester'
-DATE = '20230228'
+HOUR_LIST = ['1315', '1350', '1425', '1500', '1535', '1610', '1645']
+VENUE = 'sandown-park'
+DATE = '20230311'
 
 
 url = 'https://www.racingtv.com/api/sectional'
